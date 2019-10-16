@@ -1,4 +1,4 @@
-<a routerLink="/admin/product/new" class="btn btn-primary">New product</a>
+<a routerLink="/admin/products/new" class="btn btn-primary">New product</a>
 
 <table class="table">
   <thead>
@@ -14,7 +14,7 @@
       <td>{{p.name}}</td>
       <td>{{p.price}}</td>
       <td>{{p.category}}</td>
-      <td><a [routerLink]="['/admin/produts/',p.$key]">Edit</a></td>
+      <td><a [routerLink]="['/admin/products/',p.$key]">Edit</a></td>
 
     </tr>
   </tbody>
