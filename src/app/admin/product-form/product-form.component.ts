@@ -17,7 +17,7 @@ export class ProductFormComponent implements OnInit {
     private productService: ProductService,
     private router: Router,
     private route: ActivatedRoute) { 
-    this.categories$ = categoryService.getCategories();
+    this.categories$ = categoryService.getAll();
     this.id = this.route.snapshot.paramMap.get('id');
     if(this.id){
       this.productService.get(this.id).take(1).subscribe(p => this.product = p)
@@ -32,6 +32,11 @@ export class ProductFormComponent implements OnInit {
     if(this.id) this.productService.update(this.id,product)
     else this.productService.create(product);
     console.log(product);
+    this.router.navigate(['/admin/products'])
+  }
+  delete(){
+    if(!confirm("Are you sure want to delete this product!")) return;
+    this.productService.delete(this.id)
     this.router.navigate(['/admin/products'])
   }
 
