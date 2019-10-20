@@ -1,0 +1,20 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Order Summary</h5>
+    <p class="card-text">You have {{cart.getItemQuantityCount}} carts in your shopping cart.</p>
+    <ul class="list-group list-group-flush">
+      <li *ngFor="let item of cart.items" class="list-group-item">
+        {{item.title}} * {{item.quantity}}
+        <div class="float-right">
+          {{item.totalPrice | currency:'USD':trur}}
+        </div>
+      </li>
+      <li class="list-group font-weight-bold">
+        Total
+        <div class="float-right">
+          {{cart.totalPrice | currency:'USD':trur}}
+        </div>
+      </li>
+    </ul>
+  </div>
+</div> shopping-cart-summary works!
